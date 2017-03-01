@@ -4,6 +4,8 @@ Asignatura enmarcada dentro del master profesional en Ingeniería Informática d
 
 ## Práctica 1: Modelado con Blender
 
-- Proyecto en Blender 
+- [Proyecto en Blender](https://github.com/joseangeldiazg/MII-EntornosVirtuales/blob/master/lukelightsaber.blend)
 
-- Modelo en stl
+- [Modelo en stl](https://github.com/joseangeldiazg/MII-EntornosVirtuales/blob/master/stl/lukelightsaber.stl)
+
+
