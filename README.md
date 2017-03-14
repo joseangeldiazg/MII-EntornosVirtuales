@@ -9,3 +9,8 @@ Asignatura enmarcada dentro del master profesional en Ingeniería Informática d
 - [Modelo en stl](https://github.com/joseangeldiazg/MII-EntornosVirtuales/blob/master/stl/lukelightsaber.stl)
 
 
+## Práctica 2: Grafos de escena
+
+- [Proyecto en Blender](https://github.com/joseangeldiazg/MII-EntornosVirtuales/blob/master/r2d2.blend)
+
+- [Modelo en stl](https://github.com/joseangeldiazg/MII-EntornosVirtuales/blob/master/stl/r2d2.stl)
