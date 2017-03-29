@@ -14,3 +14,11 @@ Asignatura enmarcada dentro del master profesional en Ingeniería Informática d
 - [Proyecto en Blender](https://github.com/joseangeldiazg/MII-EntornosVirtuales/blob/master/r2d2.blend)
 
 - [Modelo en stl](https://github.com/joseangeldiazg/MII-EntornosVirtuales/blob/master/stl/r2d2.stl)
+
+
+## Práctica 3: Texturas
+
+- Globo.[Proyecto en Blender](https://github.com/joseangeldiazg/MII-EntornosVirtuales/blob/master/globo.blend)
+- Dado.[Proyecto en Blender](https://github.com/joseangeldiazg/MII-EntornosVirtuales/blob/master/dice.blend)
+
+- R2D2 [Proyecto en blender](https://github.com/joseangeldiazg/MII-EntornosVirtuales/blob/master/stl/r2d2.blend)
