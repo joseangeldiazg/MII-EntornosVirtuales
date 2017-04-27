@@ -1,0 +1,123 @@
+%---------------------------------------------------
+% Nombre: capitulo1.tex  
+% 
+% Texto del capitulo 1
+%---------------------------------------------------
+
+\chapter{Interacción}
+
+En esta cuarta práctica de la asignatura añadiremos interacción al modelo generado en la anterior práctica, el cual podemos ver en la figura \ref{img_1}, por lo que no será necesario modelar nada nuevo, salvo por un nuevo  \textit{mesh} que añadiremos para simular un holograma en el modelo. 
+
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[scale=0.4]{./Capitulo1/Imagenes/r2d2.png}
+		\caption{Modelo final de la práctica anterior.}
+	\label{img_1}
+\end{figure} 
+
+
+\section{Interacción del objeto}
+\label{objeto}
+
+La interacción de nuestro modelo podría descomponerse en tres partes, extremidades (sección \ref{extremidades}), cabeza (sección \ref{cabeza}) y por último un holograma (\ref{holo}).
+
+\subsection{Extremidades}
+\label{extremidades}
+
+Antes de comenzar es necesario destacar que las extremidades pueden ofrecer un comportamiento ciertamente especial, por lo que si esto es así implicará que tenemos transformaciones o restricciones mal aplicadas. Para solventarlo deberemos ir a todos los hijos y aplicar la opción \textit{Object>Apply>Rotation \& Scale}. Una vez hecho esto, deberemos abrir una nueva ventana de tipo \textit{logic editor} y comenzar a añadir actuadores y sensores. Para que nuestro modelo se mueva por la escena podemos añadir los actuadores y sensores que vemos en la figura \ref{act}, ademas de seleccionar la física de nuestro objeto como \textit{rigid body}. De los movimientos implementados podemos encontrar un manual de uso en la sección \ref{manual}.
+
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[scale=0.4]{./Capitulo1/Imagenes/act.png}
+		\caption{Configuración de la interacción con las extremidades.}
+	\label{act}
+\end{figure} 
+
+\subsection{Cabeza}
+\label{cabeza}
+
+La interacción de la cabeza de nuestro modelo es muy sencilla. Para implementarla, solo hemos tenido que añadir dos sensores de teclado, tal y como hicimos en la anterior sección, conectados a dos actuadores \textbf{motion} que llevan a cabo rotaciones sobre el objeto. La configuración final podemos verla en la figura \ref{cabeza}.
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[scale=0.5]{./Capitulo1/Imagenes/cabeza.png}
+		\caption{Configuración de la interacción con la cabeza.}
+	\label{cabeza}
+\end{figure} 
+
+\subsection{Holograma}
+\label{holo}
+
+Uno de los requisitos de la práctica era el añadir un nuevo sensor y actuador diferentes a los ya vistos en el guión de la misma \cite{guion}. Para darle un toque de originalidad al proyecto hemos implementado un holograma que será visible en la animación por medio de un sensor click  derecho del ratón y se ocultara con el botón izquierdo. Para ello hemos añadido un nuevo objeto cilindro (figura \ref{cil}) dentro del cual hemos añadido la figura del mono de Blender  y al cual hemos dado un material azul transparente. 
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[scale=0.7]{./Capitulo1/Imagenes/cil.png}
+		\caption{Cilindro para el holograma.}
+	\label{cil}
+\end{figure} 
+
+Para finalizar la animación y que parezca que nuestro modelo de R2D2 hace salir de el un holograma, una vez ubicado este nuevo objeto correctamente, hemos añadido la secuencia de actuadores y sensores que encontramos en la figura \ref{final}, tras lo cual habremos finalizado nuestro modelo. 
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[scale=0.5]{./Capitulo1/Imagenes/final.png}
+		\caption{Interacción del holograma.}
+	\label{final}
+\end{figure} 
+
+
+El resultado final con el \textit{holograma} activo podemos verlo en la figura \ref{holo}.
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[scale=0.6]{./Capitulo1/Imagenes/holo.png}
+		\caption{Modelo final con holograma.}
+	\label{holo}
+\end{figure} 
+
+
+\section{Interacción de la cámara}
+
+Además de la interacción con el objeto vista en el punto \ref{objeto} también se ha implementado interacción con la cámara de la escena. Concretamente, la interacción generada ha sido la siguiente:
+
+\begin{itemize}
+\item La cámara seguirá a nuestro modelo por la escena. 
+\item Añadiremos una interacción a la cámara con el ratón de manera que podremos dirigir la visión de esta. 
+\end{itemize}
+
+Para conseguir ambos efectos debemos por un lado añadir un sensor \textbf{delay} junto un actuador \textbf{mouse} al objeto cámara que lo haremos ser hijo del modelo general tal y como hemos visto en otras prácticas. La configuración final de esta interacción podemos verla en la figura \ref{1}. Por último, para que la cámara se pueda mover tras nuestro modelo, deberemos añadir (teniendo el modelo seleccionado) un sensor de tipo \textbf{Always} conectado a un actuador \textbf{Camara}.
+
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[scale=0.5]{./Capitulo1/Imagenes/1.png}
+		\caption{Configuración de cámara 1.}
+	\label{1}
+\end{figure} 
+
+
+\section{Manual de uso}
+\label{manual}
+Nuestro objeto, una vez ejecutado en modo \textbf{Blender Game}, interactuará con las entradas de la siguiente forma:
+
+\begin{itemize}
+\item  \textbf{W}: El modelo se moverá hacia delante.
+\item  \textbf{S}: El modelo se moverá hacia detrás.
+\item  \textbf{A}: El modelo se moverá hacia la izquierda.
+\item  \textbf{D}: El modelo se moverá hacia la derecha.
+\item  \textbf{Flecha izquierda}: La cabeza se moverá hacia la izquierda.
+\item  \textbf{Flecha derecha}: La cabeza se moverá hacia la derecha.
+\item  \textbf{Boton derecho del ratón}: Muestra holograma.
+\item  \textbf{Boton izquierdo del ratón}: Oculta holograma.
+\end{itemize}
+
+
+\section{Conclusiones}
+
+Sin duda la implementación de interacción con un modelo en blender es una de las cosas más sencillas que podemos hacer con el programa. La \textit{programación} mediante flujos de nodos hace que además de ello sea intuitiva y fácilmente asimilable. 
+
+\clearpage
+%---------------------------------------------------

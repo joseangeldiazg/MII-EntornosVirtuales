@@ -1,0 +1,116 @@
+%---------------------------------------------------
+% Nombre: capitulo1.tex  
+% 
+% Texto del capitulo 1
+%---------------------------------------------------
+
+\chapter{Modelado}
+
+En esta segunda práctica se pide realizar un modelado en Blender que aúne varios objetos y su grafo de escena asociado. El modelo tendrá que asimilarse lo máximo posible al objeto real y deberá tener ciertos puntos de movimiento. \ref{modelo2}. El resultado final que cuyo proceso se detalla en esta memoria puede encontrarse en el repositorio de github de la asignatura en formato blender \cite{1} o en formato stl \cite{2}.
+
+\section{Modelo elegido}
+\label{modelo}
+
+El modelo escogido para esta primera práctica podemos verlo en la figura \ref{img_1}. Podemos ver por tanto que el modelo para la elaboración de la práctica, siguiendo con la temática de la primera, es el robot R2D2 de la saga StarWars. El modelo es sencillo de llevar a cabo si no se incluyen muchos detalles además ofrece bastantes puntos de movimiento que lo hacen una práctica interesante. 
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.25]{./Capitulo1/Imagenes/r2d2.jpg}
+		\caption{Modelo R2D2.}
+	\label{img_1}
+\end{figure} 
+
+
+\section{Proceso de modelado}
+\label{modelo2}
+
+
+El proceso de modelado para la segunda práctica ha sido algo más complejo que en la anterior demostrando por tanto las destrezas y buenas prácticas que se van obteniendo con blender a medida que avanza la asignatura. 
+
+El primer paso será hacer la estructura principal del robot, para ello, añadimos una imagen de fondo que nos sirva como patrón para elaborar todo el modelo. Para ello, solo tenemos que añadir en propiedades de vista una imagen de \textit{background} que asignaremos a la vista \textit{Ortho-Front}. Una vez hecho esto solo tendremos que añadir un cilindro que será el cuerpo de nuestro robot y por medio de transformaciones básicas de escalado y extrusión de sus caras superior e inferior le daremos el tamaño apropiado. El resultado podemos verlo en la figura \ref{img_2}.
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.40]{./Capitulo1/Imagenes/2.png}
+		\caption{Imagen de patrón y cuerpo del robot.}
+	\label{img_2}
+\end{figure} 
+
+El siguiente paso para crear la estructura pasa por añadir una esfera que encajaremos en la parte superior del primer cilindro creado de manera que y tendremos lista la estructura principal de nuestro modelo de R2D2. Este paso podemos verlo en la figura \ref{img_3}.
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.40]{./Capitulo1/Imagenes/3.png}
+		\caption{Cabeza y cuerpo del robot.}
+	\label{img_3}
+\end{figure} 
+
+El siguiente paso es añadir las extremidades del robot, las cuales hacemos con un cubo que situamos en el lugar apropiado, y vamos transformando hasta que tiene el tamaño apropiado con las primitivas de transformación vistas en la práctica anterior. Tras esto, copiamos una de las extremidades la pegamos y la movemos en el eje X hasta tenerla en el sitio apropiado. El resultado podemos verlo en la figura \ref{img_4}.
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.40]{./Capitulo1/Imagenes/4.png}
+		\caption{Cabeza y cuerpo del robot.}
+	\label{img_4}
+\end{figure} 
+
+Tras esto, la parte esencial del modelo está realizada, ahora mediante primitivas de transformación y \textit{mesh} básicos añadiremos ciertos objetos y partes de detalle para tener todos los objetos del grafo de escena listos antes de darles movimiento. Por ejemplo, para los detalles de la cabeza del reloj hemos usado tres cilindros de diferentes tamaños, por otro lado, los detalles que podemos ver en las extremidades de este se han generado realizando caras adicionales mediante el \textit{shortcode} ctrl+r , y extruyendo y escalando hacia fuera dando una sensación más profesional del modelo. Los pequeños cilindros que parecen soportar el peso del robot se han realizado con cilindros los cuales se han cerrado en la parte superior haciendo uso del shortcode s+0 que cierra el mesh haciendo forma de cono en las partes superior por un lado e inferior por otro. Por otro lado, tan solo hemos realizado una de las piernas del robot ya que la otra para quedarla igual que la anterior ha sido copiada, trasladada y rotada sobre el eje z 180º asegurándonos por tanto que ambas partes son iguales. El resultado final de nuestro modelo de R2D2 podemos verlo en la figura \ref{img_5}.
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.5]{./Capitulo1/Imagenes/5.png}
+		\caption{Modelo con detalles del robot.}
+	\label{img_5}
+\end{figure} 
+
+\section{Grafo de escena}
+\label{modelo3}
+
+En esta sección veremos como dotar de movimiento y las respectivas restricciones a nuestro modelo de R2D2. Antes de nada, para evitar tener que generar demasiadas relaciones de masas padre e hijo uniremos las que vayan a tener un comportamiento similar como objetos únicos. Para ello seleccionamos por ejemplo en nuestro caso, ambas extremidades y los cilindros secundarios y mediante ctrl+j haremos de ellos un solo objeto. Repetiremos el mismo proceso con la cabeza del robot y los cilindros de detalle, teniendo cuidado de no asociar con ctrl+j el que más sobresale ya que este podrá moverse para que nuestro R2D2 pueda hacer zoom. 
+
+Una vez hecha estas uniones nuestros elementos para el grafo de escena se habrán simplificado bastante por lo que solo tendremos que ir añadiendo relaciones padre-hijo como corresponda. Para añadir estas relaciones iremos seleccionando los elementos que serán hijos para seleccionar por último al elemento padre. Tras esto, pulsamos ctrl+P y seleccionados en el popup la opción object. Para entender mejor este proceso podemos fijarnos en la figura \ref{img_6} donde vemos el árbol de relaciones. Podemos ver como el objeto principal dadas las necesidades del robot son las piernas, mientras que los demás elementos se van desgranando poco a poco.  
+
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.6]{./Capitulo1/Imagenes/6.png}
+		\caption{Grafo de escena.}
+	\label{img_6}
+\end{figure} 
+
+Una vez creadas estas relaciones solo nos quedará añadir restricciones y bloqueos a los elementos deseados para que su comportamiento sea parecido al modelo real. Estos bloqueos son los siguientes:
+
+\begin{itemize}
+	\item \textbf{Piernas:} Bloqueamos todas las rotaciones ya que son elementos que van siempre formando 90º respecto el eje X. 
+	\item \textbf{Cabeza:} Bloqueamos todas las traslaciones y las rotaciones salvo en Z donde podrá girar con total libertad 360º.
+	\item \textbf{Zoom:} Bloqueamos todos los movimientos salvo las translaciones en Y. Para que la lente del zoom no salga disparada de la lente inferior y de la cabeza es necesario añadir también una restricción de máximo movimiento. 
+	\item \textbf{Cuerpo:} Bloqueamos todos los movimientos salvo las translaciones en Z y la rotación en X. Para que se asimile a la realidad debemos permitir un mínimo de rotación en x de 16º y un máximo de 0º, por orto lado la traslación en Z tendrá un mínimo de -0.125 y un máximo de 0.6. 
+	\item \textbf{PiernaCentral:} Desactivamos todas las rotaciones y solo permitimos las traslaciones en Z en cierta media para que al rotar el cuerpo parezca que este se sale. 
+\end{itemize}
+
+
+Una vez creadas las anteriores restricciones tendríamos nuestro modelo jerárquico realizado tal y como podemos ver en la figura \ref{img_7}. 
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.40]{./Capitulo1/Imagenes/7.png}
+		\caption{Modelo jerárquico finalizado.}
+	\label{img_7}
+\end{figure} 
+
+
+\section{Dando color}
+\label{modelo4}
+
+En esta sección aplicaremos algo de color a nuestro modelo para que se asimile aun más a la realidad. Para ello, iremos seleccionando las caras apropiadas y en propiedades crearemos nuevos colores y materiales que se asimilen a la realidad y los iremos asignando al modelo diseñado. El resultado final podemos verlo en la figura \ref{img_8}.
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.40]{./Capitulo1/Imagenes/8.png}
+		\caption{Modelo con color.}
+	\label{img_8}
+\end{figure} 
+
+
+\clearpage
+%---------------------------------------------------
