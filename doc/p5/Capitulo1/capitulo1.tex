@@ -10,15 +10,57 @@ En esta quinta práctica de la asignatura, añadiremos comportamiento físico al mo
 
 \begin{figure}[H]
 	\centering
-		\includegraphics[scale=0.4]{./Capitulo1/Imagenes/holo.png}
+		\includegraphics[scale=0.6]{./Capitulo1/Imagenes/holo.png}
 		\caption{Modelo final de la práctica anterior.}
 	\label{img_1}
 \end{figure} 
 
+Dado que el modelo que hemos visto en la anterior figura no se presta en su totalidad a la inclusion de física, en esta práctica nos centraremos en recrear un "mundo" que acoja distintos elementos donde poder aplicar comportamientos físicos y restricciones. El mundo en concreto, tratará de similar un planeta desértico donde nuestro R2D2 pueda interactuar con distintos elementos como montañas, casas, o las típicas bolas rodantes de los \textit{westerns}.
+
+\section{Modelado}
+
+En esta sección veremos como hemos generado los distintos elementos que forman nuestro mundo. 
+
+\subsection{Paisaje}
+
+El paisaje inicialmente lo creamos con el AdOn Landscape, el cual ofrece directamente un plano con montañas y mesetas fácilmente modificable, aunque esta idea fue desechada rápidamente ya que a la hora de introducir física y que nuestro modelo se moviera por el paisaje, todo este se comportaba como un solo ente por lo que si lo fijábamos como objeto rígido nuestro modelo de R2D2 no se podia acercar ni siquiera al plano por lo que se caía de nuestro plano. La solución a esto, fue crear un plano como \textbf{objeto estático}, añadirle una textura y generar mayas por debajo de este donde queremos generar una montaña, a las cuales daremos altura con el modo \textbf{esculpir} El resultado lo podemos ver en la figura \ref{uno}.
+
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[scale=0.6]{./Capitulo1/Imagenes/uno.png}
+		\caption{Paisaje con montañas.}
+	\label{uno}
+\end{figure} 
+
+Por último, asignaremos a estos planos una textura diferente que la del suelo normal para generar contraste. Respecto a la física de estos elementos, los generaremos como \textbf{cuerpos rígidos} y añadimos restricciones de bloqueo de translaciones y rotaciones para evitar que nuestro modelo pueda mover las montañas, algo que no sería acorde a la realidad. 
+
+
+\subsection{Casas}
+
+Las casas las generaremos con una semi esfera y diversos cubos con textura de adobe que iremos colocando como podemos ver en la figura \ref{dos}. Tendremos que asignar a los cubos como \textbf{cuerpos rígidos} para que nuestro modelo pueda moverlos e interactuar con ellos como si fueran ladrillos. 
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[scale=0.6]{./Capitulo1/Imagenes/dos.png}
+		\caption{Construcción de las casas.}
+	\label{dos}
+\end{figure} 
+
+\subsection{Bolas de Pasto}
+
+Por último hemos bajado una foto de la típica bola rodante de los \textit{westerns}, la cual la hemos aplicado a unas esferas de comportamiento físico como \textbf{cuerpo blando} ya que es la que más se asimila a como una planta circular se comportaría en la realidad al tocar contra un cuerpo rígido. El modelo final podremos verlo en la figura \ref{tres}.
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[scale=0.6]{./Capitulo1/Imagenes/tres.png}
+		\caption{Modelo final.}
+	\label{tres}
+\end{figure} 
 
 \section{Conclusiones}
 
-El añadir física a nuestros modelos en blender, o añadiría a nuevos objetos que añadamos para que las interacciones de nuestro modelo se asimilen a como serian en el mundo real, es uno de los conceptos más interesantes de Blender, aunque por otro lado, también ofrece en ciertos puntos una complejidad avanzada, debida en gran medida a la cantidad de parámetros disponibles en cuanto a \textb{física} en nuestro modelo se refiere. 
+El añadir física a nuestros modelos en blender, o añadirla a nuevos objetos que añadamos para que las interacciones de nuestro modelo se asimilen a como serían en el mundo real, es uno de los conceptos más interesantes de Blender, aunque por otro lado, también ofrece en ciertos puntos una complejidad avanzada, debida en gran medida a la cantidad de parámetros disponibles en cuanto a \textbf{física} en nuestro modelo se refiere. 
 
 \clearpage
 %---------------------------------------------------
